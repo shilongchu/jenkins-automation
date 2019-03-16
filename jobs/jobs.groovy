@@ -34,18 +34,6 @@ def pipelineScript = """
     } 
 """ 
 
- 
-new PipelineJobBuilder( 
-        name: 'Hello-Pipeline-Job', 
-        description: 'Example Pipeline job', 
-        pipelineScript: pipelineScript, 
-        sandboxFlag: false 
-).build(this).with { 
-    // example of extending a job with the job-dsl api 
-    logRotator { 
-        numToKeep(60) 
-    } 
-} 
 
 new BaseJobBuilder( 
         name: "Hello-Freestyle-Job", 
