@@ -45,6 +45,4 @@ new PipelineJobBuilder(
     logRotator { 
         numToKeep(60) 
     }
- 
- 
 } 
