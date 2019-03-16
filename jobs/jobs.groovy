@@ -35,7 +35,7 @@ def pipelineScript = """
 """ 
 
 
-new PipelineJobBuilder( 
+ew PipelineJobBuilder( 
         name: 'Hello-Pipeline-Job', 
         description: 'Example Pipeline job', 
         pipelineScript: pipelineScript, 
@@ -44,5 +44,14 @@ new PipelineJobBuilder(
     // example of extending a job with the job-dsl api 
     logRotator { 
         numToKeep(60) 
-    }
+    } 
+} 
+
+new BaseJobBuilder( 
+        name: "Hello-Freestyle-Job", 
+        description: "Example Freestyle job" 
+).build(this).with { 
+    steps { 
+        shell("echo ${env.getEnv()}") 
+    } 
 } 
